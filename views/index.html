@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Employee INFO</title>
+    <script src="https:////ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    
+    <style>
+		
+		body, html{
+			margin:0px;
+			padding:0px;			
+		}
+		
+		#emp_tbl td {
+			border:gray solid 1px;
+			width: 250px;
+			text-align:center;
+			padding:0px;
+			margin:0px;
+		}
+		
+		
+		    
+    </style>
+
+  </head>
+  <body>
+    <h1>Employee Info</h1>
+    <div>
+    
+		<table id="emp_tbl">
+			<tr>
+				<td>First Name</td>
+				<td>Last Name</td>
+				<td>Start Date</td>
+
+				<td style="width:50px;">Age</td>
+								<td style="border:none;"></td>
+
+			</tr>
+			<tr>
+				<td><input type=text id="fname"></td>
+				<td><input type=text id="lname"></td>
+				<td ><input type=text id="sdate"></td>
+				<td style="width:50px;">
+					<input id="age" type=text size=5>
+				</td>
+				<td style="border:none;"></td>
+				<td style="width:50px;"><button id="add_emp">Add Info</button></td>
+
+			</tr>
+			
+			
+			
+		</table>
+		<br><br><br><br><br><br>
+		<hr>
+		<br>
+<!--
+		<h1>Current Info</h1>
+
+		<table id="emp_tbl">
+			<th>
+				<td style="width:100px;">Employee ID</td>
+				<td>First Name</td>
+				<td>Last Name</td>
+				<td>Start Date</td>
+				<td style="width:50px;">Age</td>
+				<td style="width:50px;"></td>
+				<td style="width:50px;"></td>
+				<td style="width:50px;"></td>
+			</th>
+		</table>
+-->
+		
+    </div>
+    
+    
+    <script>
+		jQuery(function($){
+			
+			$("#add_emp").click(function(){
+				
+				alert("clicked");
+				
+				
+				if($("#fname").val()==""){
+					alert("Fill the first name!");
+					return;
+				}
+				if($("#lname").val()==""){
+					alert("Fill the last name!");
+					return;
+				}
+				if($("#sdate").val()==""){
+					alert("Fill the start date!");
+					return;
+				}
+				if($("#age").val()==""){
+					alert("Fill the age!");
+					return;
+				}
+				
+				$.ajax({
+					url:"/add_emp",
+					type:"POST",
+					datatype:"JSON",
+					data:{
+						"fname":$("#fname").val(),
+						"lname":$("#lname").val(),
+						"sdate":$("#sdate").val(),
+						"age":$("#age").val(),
+					},
+					success: function(data){
+						alert("got data");
+					}
+				});
+				
+				
+				
+			});
+			
+			
+			
+			
+			});
+    
+    </script>    
+    
+    
+  </body>
+</html>
