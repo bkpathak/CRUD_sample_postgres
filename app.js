@@ -11,7 +11,7 @@ var path = require('path');
 
 
 var pg = require('pg');
-var constr = "postgres://eerc:1234@localhost:5432/eerc";
+var constr = "dbname=d2q8j53qt79pl6 host=ec2-107-22-190-179.compute-1.amazonaws.com user=ieprplhoammjmw password=BBoK8KdGdmN2w23hKn7CH3477W port=5432 sslmode=require";
 
 var app = express();
 
